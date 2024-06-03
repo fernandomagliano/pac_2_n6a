@@ -2,7 +2,18 @@
   <h1 class="mt-5">Realizar la consigna debajo de este mensaje</h1>
 </div>
 
-<!-- Html faltante -->
-<div>
-  <button class="btn btn-primary" (click)="randomMethod()">Search</button>
+<div class="todos-container">
+  <div class="search-bar">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="onSearchTermChange()" placeholder="Search todos...">
+    <button class="btn btn-primary" (click)="searchTodos()" [disabled]="!searchTerm || searchTerm.trim() === ''">Search todos</button>
+  </div>
+  <div *ngIf="filteredTodos.length === 0" class="no-results">
+    No results found
+  </div>
+  <ul *ngIf="filteredTodos.length > 0" class="list-group">
+    <li *ngFor="let todo of filteredTodos" class="list-group-item d-flex justify-content-between align-items-center">
+      <span>{{ todo.title }}</span>
+      <button class="btn btn-secondary btn-sm" (click)="viewDetail(todo.id)">View Details</button>
+    </li>
+  </ul>
 </div>

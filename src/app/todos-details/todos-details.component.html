@@ -1,0 +1,5 @@
+<div class="todo-detail-container" *ngIf="todo">
+    <h2>{{ todo.title }}</h2>
+    <p>ID: {{ todo.id }}</p>
+    <p>Completed: {{ todo.completed ? 'Yes' : 'No' }}</p>
+  </div>
