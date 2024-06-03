@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TodosService } from '../todos.service';
+import { TodosService } from '../services/todos.service';
 import { Todo } from '../models/todo';
 import { Router } from '@angular/router';
 
